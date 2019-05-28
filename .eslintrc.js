@@ -13,5 +13,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'react/destructuring-assignment': 0,
     'import/no-unresolved': 0,
+    'react/jsx-curly-brace-presence': 0,
   },
 };

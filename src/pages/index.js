@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import Layout from '../components/layout';
+import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from 'src/theme/GlobalStyle';
+import { theme } from 'src/theme/MainTheme';
 
-const IndexPage = () => (
-  <Layout>
-    <h1> hello! </h1>
-    <button type="button">
-      <Link to="/page-2/">Go to page 2</Link>
-    </button>
-  </Layout>
+const IndexPage = ({ children }) => (
+  <div>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <>{children}</>
+    </ThemeProvider>
+  </div>
 );
+
+IndexPage.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default IndexPage;
