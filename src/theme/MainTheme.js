@@ -6,10 +6,6 @@ export const theme = {
     m: '18px',
     s: '12px',
   },
-  color: {
-    black: 'black',
-    green: 'hsl(158, 51%, 71%)',
-  },
   fontWeight: {
     light: '200',
     regular: '500',

@@ -8,4 +8,12 @@ storiesOf('Atoms/Heading', module)
       Joanna Krężołek
     </Heading>
   ))
-  .add('Subheading', () => <Heading>Hi, my name is</Heading>);
+  .add('Subheading', () => <Heading>Hi, my name is</Heading>)
+  .add('AboutHeading', () => (
+    <div>
+      <Heading about>me</Heading>
+      <Heading about>skills</Heading>
+      <Heading about>hobbies</Heading>
+      <Heading about>plans</Heading>
+    </div>
+  ));

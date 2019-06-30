@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Paragraph = styled.p`
   font-size: ${({ theme }) => theme.fontSize.m};
-  color: ${({ theme }) => theme.color.black};
+  font-weight: ${({ theme }) => theme.fontWeight.light};
   letter-spacing: 1.2px;
 `;
 
