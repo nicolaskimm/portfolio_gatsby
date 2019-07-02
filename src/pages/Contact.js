@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import Layout from 'src/components/Layout';
-import Heading from 'src/components/atoms/Heading/Heading';
-import SubHeading from 'src/components/atoms/SubHeading/SubHeading';
+import OfficalInfo from 'src/components/molecules/OfficalInfo/OfficalInfo';
+import NotOfficalInfo from 'src/components/molecules/NotOfficalInfo/NotOfficalInfo';
+import { IconContext } from 'react-icons';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -13,70 +14,78 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledInnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
   ${({ info }) =>
     info &&
     css`
-      display: flex;
-      flex-direction: column;
-      padding: 100px 0 0 150px;
+      width: 600px;
     `}
 `;
 
-const StyledHeading = styled(Heading)`
-  font-weight: 300;
-  margin: 0 0 50px;
-  font-size: 25px;
-
-  ${({ nav }) =>
-    nav &&
-    css`
-      font-size: 40px;
-      margin: 0 0 10px;
-    `}
+const StyledButton = styled.button`
+  text-align: left;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  margin: 0 0 10px;
 `;
 
-const StyledSubHeading = styled(SubHeading)`
-  font-weight: 200;
-  margin: 0 0 5px;
-  font-size: 35px;
-  font-family: 'Rozha One', sans-serif;
-  letter-spacing: 2px;
-`;
+class Contact extends Component {
+  state = {
+    isOfficalClicked: true,
+  };
 
-const StyledLink = styled.a`
-  text-decoration: none;
-  font-weight: 200;
-  color: inherit;
-  font-family: 'Montserrat';
-  margin: 0 0 50px;
-  font-size: 25px;
-`;
+  toggleVisibility = e => {
+    const data = e.target.getAttribute('data-type');
 
-const Contact = () => {
-  return (
-    <Layout>
-      <StyledWrapper>
-        <StyledInnerWrapper>
-          <StyledHeading nav>OFFICAL</StyledHeading>
-          <StyledHeading nav>NOT SO OFFICAL</StyledHeading>
-        </StyledInnerWrapper>
-        <StyledInnerWrapper info>
-          <StyledSubHeading>Phone</StyledSubHeading>
-          <StyledHeading> +48 795611325 </StyledHeading>
-          <StyledSubHeading>E-mail</StyledSubHeading>
-          <StyledHeading> j.krezolek@gmail.com </StyledHeading>
-          <StyledSubHeading>LinkedIn</StyledSubHeading>
-          <StyledLink href="https://www.linkedin.com/in/joanna-krężołek">
-            https://www.linkedin.com/in/joanna-krężołek
-          </StyledLink>
-          <StyledSubHeading>Github</StyledSubHeading>
-          <StyledLink href=" https://github.com/nicolaskimm">
-            https://github.com/nicolaskimm
-          </StyledLink>
-        </StyledInnerWrapper>
-      </StyledWrapper>
-    </Layout>
-  );
-};
+    if (data === 'offical') {
+      this.setState({
+        isOfficalClicked: true,
+      });
+    } else {
+      this.setState({
+        isOfficalClicked: false,
+      });
+    }
+  };
+
+  render() {
+    return (
+      <Layout>
+        <IconContext.Provider value={{ size: '2em' }}>
+          <StyledWrapper>
+            <StyledInnerWrapper>
+              <StyledButton
+                type="button"
+                data-type="offical"
+                onClick={this.toggleVisibility}
+              >
+                OFFICAL
+              </StyledButton>
+              <StyledButton
+                type="button"
+                data-type="not-offical"
+                onClick={this.toggleVisibility}
+              >
+                NOT SO OFFICAL
+              </StyledButton>
+            </StyledInnerWrapper>
+            <StyledInnerWrapper info>
+              {this.state.isOfficalClicked ? (
+                <OfficalInfo />
+              ) : (
+                <NotOfficalInfo />
+              )}
+            </StyledInnerWrapper>
+          </StyledWrapper>
+        </IconContext.Provider>
+      </Layout>
+    );
+  }
+}
 
 export default Contact;
