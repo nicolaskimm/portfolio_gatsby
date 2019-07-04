@@ -49,7 +49,12 @@ const Layout = props => (
         <StyledButtonWrapper>
           <StyledButton type="button" />
         </StyledButtonWrapper>
-        <MainNavigation first="Home" second="Projects" third="Contact" />
+        <MainNavigation
+          first="Home"
+          second="Projects"
+          third="Contact"
+          fourth="Projects2"
+        />
       </StyledNavigation>
       {props.children}
     </StyledWrapper>

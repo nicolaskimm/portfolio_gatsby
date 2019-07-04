@@ -22,6 +22,7 @@ const MainNavigation = props => (
     <StyledLink to={`/${props.first}`}>{props.first}</StyledLink>
     <StyledLink to={`/${props.second}`}>{props.second}</StyledLink>
     <StyledLink to={`/${props.third}`}>{props.third}</StyledLink>
+    <StyledLink to={`/${props.fourth}`}>{props.fourth}</StyledLink>
   </StyledList>
 );
 
@@ -29,6 +30,7 @@ MainNavigation.propTypes = {
   first: PropTypes.string.isRequired,
   second: PropTypes.string.isRequired,
   third: PropTypes.string.isRequired,
+  fourth: PropTypes.string.isRequired,
 };
 
 export default MainNavigation;

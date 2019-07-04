@@ -4,14 +4,14 @@ const ButtonLink = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 30px;
+  width: 150px;
+  height: 20px;
   background: none;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 7px;
   padding: 20px;
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  font-size: ${({ theme }) => theme.fontSize.m};
+  font-size: 14px;
   text-transform: lowercase;
 `;
 

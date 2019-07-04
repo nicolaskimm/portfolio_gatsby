@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Subheading from './Subheading';
+import Subheading from './SubHeading';
 
 storiesOf('Atoms/Subheading', module)
   .add('Primary', () => <Subheading primary>Boardime</Subheading>)

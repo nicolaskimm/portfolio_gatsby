@@ -4,7 +4,6 @@ const ListItem = styled.li`
   display: inline-block;
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: ${({ theme }) => theme.fontWeight.light};
-  text-transform: uppercase;
   position: relative;
   list-style-type: none;
   margin: 10px;
@@ -13,11 +12,13 @@ const ListItem = styled.li`
     content: '';
     display: inline-block;
     height: 100%;
-    width: 3px;
-    background-color: black;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: white;
     position: absolute;
-    top: 0;
-    right: -10px;
+    top: 25%;
+    right: -15px;
   }
 `;
 
