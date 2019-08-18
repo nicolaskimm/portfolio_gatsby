@@ -30,9 +30,16 @@ const StyledInnerWrapper = styled.div`
       flex-direction: column;
       justify-content: space-around;
       width: 300px;
-      height: 80vh;
-      background-color: #141414;
+      height: 70vh;
+      margin-right: 30px;
+      border: 1px solid #474646;
       padding: 25px;
+    `}
+
+  ${({ photo }) =>
+    photo &&
+    css`
+      margin-top: 80px;
     `}
 `;
 
